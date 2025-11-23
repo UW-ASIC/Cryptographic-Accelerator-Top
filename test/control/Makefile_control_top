@@ -1,0 +1,24 @@
+# Makefile
+# See https://docs.cocotb.org/en/stable/quickstart.html for more info
+
+# defaults
+SIM ?= icarus
+TOPLEVEL_LANG ?= verilog
+VERILOG_SOURCES = $(PWD)/../src/*.v
+
+# Testbench wrapper (empty wrapper module that instantiates DUT)
+TOPLEVEL = control_top_tb
+
+# Python test module (without .py extension)
+MODULE = test_control_top
+
+# Optional: Unique VCD/GTKWave output file
+COCOTB_RESULTS_FILE = control_top.vcd
+
+# Include Cocotb's build rules
+include $(shell cocotb-config --makefiles)/Makefile.sim
+
+# Cleanup
+clean::
+	rm -rf __pycache__ sim_build *.vvp *.vcd
+.PHONY: clean

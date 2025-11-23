@@ -22,6 +22,14 @@ project:
     - "mem_spi_controller.v"
     - "mem_toplevel.v"
     - "mem_transaction_fsm.v"
+    - "control/aes_fsm.v"
+    - "control/bus_arbiter.v"
+    - "control/comp_queue.v"
+    - "control/control_top.v"
+    - "control/deserializer.v"
+    - "control/req_queue.v"
+    - "control/serializer.v"
+    - "control/sha_fsm.v"
 
 # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
 # This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).

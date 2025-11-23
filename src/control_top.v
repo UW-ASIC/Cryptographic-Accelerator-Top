@@ -36,8 +36,8 @@ module control_top #(
   deserializer #(.ADDRW(ADDRW), .OPCODEW(OPCODEW)) deserializer_inst(.clk(clk), .rst_n(rst_n), .spi_clk(spi_clk), .mosi(mosi), .cs_n(cs_n), .aes_ready_in(aes_queue_ready), .sha_ready_in(sha_queue_ready), .valid(valid), .opcode(opcode), .key_addr(key_addr), .text_addr(text_addr), .dest_addr(dest_addr), .valid_out(req_q_valid));
 
   wire aes_fsm_ready, sha_fsm_ready;
-  wire [AES_INSTRW] instr_aes;
-  wire [SHA_INSTRW] instr_sha;
+  wire [AES_INSTRW-1:0] instr_aes;
+  wire [SHA_INSTRW-1:0] instr_sha;
   wire valid_out_aes, valid_out_sha;
   wire aes_queue_ready, sha_queue_ready;
   // May need to change deserializer so that it holds instruction until req_queue is ready for aes or sha
